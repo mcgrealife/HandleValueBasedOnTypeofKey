@@ -1,14 +1,9 @@
-# Vite + React
+# WHY:
 
-This is a [Vite](https://vitejs.dev) project together with React.
+Database stores value as `string` or `string[]`
 
-[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/codesandbox/codesandbox-template-vite-react/main)
+For *both*, Admin UI input is `textArea`
 
-[Configuration](https://codesandbox.io/docs/projects/learn/setting-up/tasks) has been added to optimize it for [CodeSandbox](https://codesandbox.io/dashboard).
+For the database type that is `string[]`, we `split` the textArea value on `\n` chars before saving
 
-## Resources
-
-- [CodeSandbox — Docs](https://codesandbox.io/docs/projects)
-- [CodeSandbox — Discord](https://discord.gg/Ggarp3pX5H)
-- [Vite — GitHub](https://github.com/vitejs/vite)
-- [Vite — Docs](https://vitejs.dev/guide/)
+For the database type that is `string`, we store the value as a string (even if it includes '\n' chars)

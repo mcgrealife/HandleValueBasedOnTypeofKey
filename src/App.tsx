@@ -6,24 +6,24 @@ type SomeThing = {
 function App() {
   return (
     <>
-      <HandleValueBasedOnTypeofKey
-        key="thing1"
+      <HandleStringValueBasedOnTypeofKey
+        key="thing1" // thing1 is string // return unmodified value as string
         value="this has \n line breaks, but key thing1 is typeof string, so keep as string"
       />
-      <HandleValueBasedOnTypeofKey
-        key="thing2"
+      <HandleStringValueBasedOnTypeofKey
+        key="thing2" // thing2 is string[] // return value.split('\n') as string[]
         value="this also has \n line breaks, but key thing2 is typeof string[], so value.split('\n')"
       />
     </>
   );
 }
 
-async function HandleValueBasedOnTypeofKey({
+async function HandleStringValueBasedOnTypeofKey({
   value,
   key,
 }: {
-  value: string;
-  key: keyof SomeThing;
+  value: string; // value is always a string
+  key: keyof SomeThing; // but I want to handle it based on the type of Something[key]
 }) {
   return Array.isArray(typeof SomeThing[key]) ? (
     value.split("\n").map((line) => <p>{line}</p>)
